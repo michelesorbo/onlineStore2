@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     $viewData = [];
-//     $viewData['title'] = "Home di Online Shop";
-//     return view('home.index')->with("viewData", $viewData);
-// });
+//Pagine per la home
 Route::get('/', [HomeController::class, 'index'])->name('index');
-
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
+//Pagine per i prodotti
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
+//Non usare questo metodo
 Route::get('/michele', function(){
     return view('home.michele');
 });
