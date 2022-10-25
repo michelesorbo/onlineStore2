@@ -26,7 +26,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 
 //Pagine per area ADMIN
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index'); //Chiamata alla funzione che restituisce un pagina con i dati
 Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');
 Route::post('admin/product/store', [AdminProductController::class, 'store'])->name('admin.product.store');
 

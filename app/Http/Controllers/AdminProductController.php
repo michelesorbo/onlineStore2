@@ -11,7 +11,7 @@ class AdminProductController extends Controller
         $viewData = [];
         $viewData['title'] = "Prodotti in Admin";
         $viewData["products"] = Product::all();
-        return view('admin.product.index')->with('viewData', $viewData);
+        return view('admin.product.index')->with('viewData', $viewData);//Pagina prenente nella cartella view
     }
 
     public function store(Request $request){
