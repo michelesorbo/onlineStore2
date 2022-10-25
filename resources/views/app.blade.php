@@ -22,7 +22,7 @@
                 <a class="nav-link active" href="{{ route('index') }}">Home</a>
                 <a class="nav-link active" href="{{ route('product.index') }}">Prodotti</a>
                 <a class="nav-link active" href="{{ route('about') }}">About</a>
-                <a class="nav-link active" href="/michele">Michele</a>
+                <a class="nav-link active" href="{{ route('admin.index') }}">Admin</a>
                 </div>
             </div>
         </div>

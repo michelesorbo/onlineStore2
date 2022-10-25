@@ -46,10 +46,10 @@ class Product extends Model
 
 
     public function getPrice(){
-        return $this->attributes['price'];
+        return $this->attributes['price']." €";
     }
     public function setPrice($price){
-        $this->attributes['price'] = $price; //+ €
+        $this->attributes['price'] = $price;
     }
 
     public function getCreatedAt(){

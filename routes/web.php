@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,12 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 //Pagine per i prodotti
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
+
+//Pagine per area ADMIN
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');
+Route::post('admin/product/store', [AdminProductController::class, 'store'])->name('admin.product.store');
+
 //Non usare questo metodo
 Route::get('/michele', function(){
     return view('home.michele');
