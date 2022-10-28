@@ -14,7 +14,7 @@
       </ul>
       @endif
 
-      <form method="POST" action="{{ route('admin.product.store') }}">
+      <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col">
@@ -33,6 +33,16 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3 row">
+                    <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
+                    <div class="col-lg-10 col-md-6 col-sm-12">
+                        <input type="file" class="form-control" name="image">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Description</label>
@@ -63,8 +73,20 @@
         <tr>
           <td>{{ $product->getId() }}</td>
           <td>{{ $product->getName() }}</td>
-          <td>Edit</td>
-          <td>Delete</td>
+          <td>
+            <a class="btn btn-primary" href="{{ route('admin.product.edit', ['id'=>$product->getId()]) }}">
+                <i class="bi-pencil"></i>
+            </a>
+          </td>
+          <td>
+            <form action="{{ route('admin.product.delete', $product->getId()) }}" method="post">
+            @csrf
+            @method('DELETE')
+                <button class="btn btn-danger">
+                    <i class="bi bi-trash3"></i>
+                </button>
+            </form>
+          </td>
         </tr>
         @endforeach
       </tbody>

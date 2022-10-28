@@ -9,6 +9,15 @@ class Product extends Model
 {
     use HasFactory;
 
+    public static function validate($request){
+        $request->validate([
+            "name" => "required|max:255",
+            "description" => "required",
+            "price" => "required|numeric|gt:0",
+            'image' => 'image',
+        ]);
+    }
+
     //Funzioni di get servono a restituire un valore
     public function getId(){
         return $this->attributes['id'];
@@ -46,7 +55,7 @@ class Product extends Model
 
 
     public function getPrice(){
-        return $this->attributes['price']." €";
+        return $this->attributes['price'];
     }
     public function setPrice($price){
         $this->attributes['price'] = $price;

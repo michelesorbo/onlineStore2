@@ -29,6 +29,9 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index'); //Chiamata alla funzione che restituisce un pagina con i dati
 Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');
 Route::post('admin/product/store', [AdminProductController::class, 'store'])->name('admin.product.store');
+Route::delete('/admin/products/{id}/delete', [AdminProductController::class, 'delete'])->name("admin.product.delete");
+Route::get('/admin/product/{id}/edit', [AdminProductController::class, 'edit'])->name('admin.product.edit');
+Route::put('/admin/product/{id}/update', [AdminProductController::class, 'update'])->name('admin.product.update');
 
 //Non usare questo metodo
 Route::get('/michele', function(){
