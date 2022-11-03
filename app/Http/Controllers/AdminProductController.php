@@ -44,6 +44,15 @@ class AdminProductController extends Controller
     }
 
     public function delete($id){
+        //Cancello il file dell'immagine se esiste
+        $product = Product::findOrFail($id);
+        if(Storage::exists('public/'.$product->getImage())){
+            Storage::delete('public/'.$product->getImage());
+        }else{
+            dd('File non esistente'.$product->getImage());
+        }
+
+        //Cancello il prodotto dalla tabella nel DB
         Product::destroy($id);
         return back();
     }

@@ -14,24 +14,16 @@
     </ul>
     @endif
 
-    <form method="POST" action="{{ route('admin.product.update', ['id'=> $viewData['product']->getId()]) }}"
+    <form method="POST" action="{{ route('admin.blog.update', ['id'=> $viewData['blog']->getId()]) }}"
       enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="row">
         <div class="col">
           <div class="mb-3 row">
-            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Name:</label>
+            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Titolo:</label>
             <div class="col-lg-10 col-md-6 col-sm-12">
-              <input name="name" value="{{ $viewData['product']->getName() }}" type="text" class="form-control">
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="mb-3 row">
-            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Price:</label>
-            <div class="col-lg-10 col-md-6 col-sm-12">
-              <input name="price" value="{{ $viewData['product']->getPrice() }}" type="number" class="form-control">
+              <input name="titolo" value="{{ $viewData['blog']->getTitolo() }}" type="text" class="form-control">
             </div>
           </div>
         </div>
@@ -46,7 +38,7 @@
           </div>
 
           <div class="mb-3 row">
-            <img src="{{ asset('/storage/' . $viewData['product']->getImage()) }}" class="img-fluid rounded-start">
+            <img src="{{ asset('/storage/' . $viewData['blog']->getImage()) }}" class="img-fluid rounded-start">
           </div>
         </div>
         <div class="col">
@@ -54,9 +46,9 @@
         </div>
       </div>
       <div class="mb-3">
-        <label class="form-label">Description</label>
-        <textarea class="form-control" name="description"
-          rows="3">{{ $viewData['product']->getDescription() }}</textarea>
+        <label class="form-label">Corpo</label>
+        <textarea class="form-control" name="corpo"
+          rows="3">{{ $viewData['blog']->getCorpo() }}</textarea>
       </div>
       <button type="submit" class="btn btn-primary">Edit</button>
     </form>
